@@ -22,3 +22,8 @@ A weather application that provides weather forecasts and current weather data f
 
 ## Usage
 Enter a city name in the search bar to get the current weather and forecast.
+
+##Limitations
+- Can only fetch and share the result for district city and not for villages or small town.
+- may be not compatible on all browser. Recommended to use ms edge browser for better experience.
+- The accuracy of the weather data depends on the quality and granularity of the API's data sources. There may be discrepancies between reported weather conditions and actual weather.

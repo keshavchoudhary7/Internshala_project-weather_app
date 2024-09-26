@@ -85,10 +85,16 @@ async function getCurrentLocationWeather() {
 function updateWeatherUI(data) {
     cityName.textContent = data.name; // City name
     weatherDescription.textContent = `${data.weather[0].description}, ${data.main.temp}°C`;
+    
+    // Set the weather icon source
+    const weatherIcon = document.getElementById('weather-icon');
+    weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    
     windSpeed.textContent = `${data.wind.speed} m/s`;
     humidity.textContent = `${data.main.humidity}%`;
     pressure.textContent = `${data.main.pressure} hPa`;
 }
+
 
 // Display 5-Day Forecast
 function displayForecast(forecastList) {

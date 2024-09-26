@@ -5,25 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
 
-    <!-- Tailwind CSS -->
+    <!-- tailwind css link  -->
     <link rel="stylesheet" href="dist/style.css" />
+
+    <style>
+      /* Ensure the video covers the entire background */
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        /* Set z-index to place it behind other elements */
+      }
+    </style>
   </head>
-  <body>
-    <main class="flex flex-col items-center justify-center min-h-screen p-5 relative">
+
+  <body class="bg-gray-900">
+    <main
+      class="flex flex-col items-center justify-center min-h-screen p-5 relative"
+    >
       <!-- Video Background -->
       <video autoplay muted loop class="video-background">
-        <source src="resource/856572-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+        <source
+          src="resource/856572-uhd_3840_2160_25fps.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
 
       <!-- Header Section -->
       <header class="text-center mb-8">
         <h1 class="text-5xl text-white font-extrabold">Weather Forecast</h1>
-        <p class="text-lg text-gray-200">Your daily weather updates at a glance</p>
+        <p class="text-lg text-gray-200">
+          Your daily weather updates at a glance
+        </p>
       </header>
 
       <!-- Search Section -->
-      <section class="flex flex-col sm:flex-row items-center mb-6 w-full max-w-lg relative">
+      <section
+        class="flex flex-col sm:flex-row items-center mb-6 w-full max-w-lg relative"
+      >
         <input
           type="text"
           placeholder="Enter city..."
@@ -35,9 +59,26 @@
           class="mt-4 sm:mt-0 sm:ml-4 px-4 py-3 flex items-center justify-center bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 shadow-lg"
         >
           <!-- SVG Icon for Location -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-10 10c0 5.52 10 12 10 12s10-6.48 10-12a10 10 0 00-10-10z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h0m0 6h0m0 6h0" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 2a10 10 0 00-10 10c0 5.52 10 12 10 12s10-6.48 10-12a10 10 0 00-10-10z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6h0m0 6h0m0 6h0"
+            />
           </svg>
         </button>
         <button
@@ -46,9 +87,12 @@
         >
           Search
         </button>
-        
+
         <!-- Recently searched cities -->
-        <div id="recent-searches" class="absolute left-0 right-0 mx-auto bg-white shadow-lg rounded-lg p-2 mt-1 hidden w-48 z-10">
+        <div
+          id="recent-searches"
+          class="absolute left-0 right-0 mx-auto bg-white shadow-lg rounded-lg p-2 mt-1 hidden w-48 z-10"
+        >
           <h4 class="font-bold text-gray-800 mb-2">Recently Searched</h4>
           <ul id="recent-search-list">
             <!-- Recent cities will be added here dynamically -->
@@ -57,9 +101,23 @@
       </section>
 
       <!-- Weather Display Section -->
-      <section class="bg-white rounded-lg shadow-lg p-6 mb-8 w-full max-w-xl text-center">
-        <h2 id="city-name" class="text-4xl font-semibold text-gray-800">City Name</h2>
-        <p id="weather-description" class="text-2xl text-gray-700">Sunny, 28°C</p>
+      <section
+        class="bg-white rounded-lg shadow-lg p-6 mb-8 w-full max-w-xl text-center"
+      >
+        <h2 id="city-name" class="text-4xl font-semibold text-gray-800">
+          City Name
+        </h2>
+        <div class="flex justify-center items-center mt-2">
+          <img
+            id="weather-icon"
+            src="https://cdn-icons-png.flaticon.com/512/3222/3222691.png"
+            alt="Sunny Weather Icon"
+            class="w-16 h-16"
+          />
+          <p id="weather-description" class="text-2xl text-gray-700 ml-4">
+            Sunny, 28°C
+          </p>
+        </div>
         <div class="flex justify-around mt-4">
           <div class="flex flex-col items-center">
             <p class="text-gray-700">Wind Speed</p>
@@ -79,9 +137,10 @@
       <!-- 5-day Forecast Section -->
       <section class="w-full max-w-xl">
         <h3 class="text-3xl font-semibold text-white mb-4">5-Day Forecast</h3>
-        <div id="forecast-container" class="grid grid-cols-2 sm:grid-cols-5 gap-4">
-          <!-- Forecast cards will be inserted here dynamically -->
-        </div>
+        <div
+          id="forecast-container"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4"
+        ></div>
       </section>
     </main>
 
